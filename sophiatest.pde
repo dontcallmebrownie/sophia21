@@ -1,12 +1,13 @@
 Player sophia = new Player();
-Room bedroom = new Room(0, true, "door1", "./rsc/img/env/DOOR_OPEN.png", "./rsc/img/env/doorClosed.png", 1, 1000, 1300 );
+Room bedroom = new Room(0, true, "door1", "./rsc/img/env/DOOR_OPEN.png", "./rsc/img/env/doorClosed.png", 1, 1000, 1255 );
 
-Room kitchen = new Room(1, true, "./rsc/img/env/KDOOR_OPEN.png", "./rsc/img/env/kDoorClosed.png", 0, -165, -60);
+Room kitchen = new Room(1, true, "./rsc/img/env/KDOOR_OPEN.png", "./rsc/img/env/kDoorClosed.png", 0, -10, 245);
 
-
+boolean debug = true;
 
 void setup()
 {
+  // These load functions whould be in the respective classes
   size(1246, 720);
   sophia.spriteF = loadImage("./rsc/img/player/sophie.png");
   sophia.spriteB = loadImage("./rsc/img/player/sophieb.png");
@@ -17,12 +18,12 @@ void setup()
   
   kitchen.env = loadImage("./rsc/img/env/kitchen.png");
   kitchen.setup();
+  kitchen.exit.lr = 1;
 }
 
 void draw()
 {
   
-
   switch(sophia.room)
   {
     case 0:
@@ -36,4 +37,10 @@ void draw()
   
   sophia.move();
   sophia.draw();
+}
+
+void keyReleased()
+{
+ println("Key released!");
+ keyPressed = false;
 }

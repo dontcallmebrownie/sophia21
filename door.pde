@@ -22,6 +22,11 @@ class Door
     doorID = dID;
   }
 
+
+  void setup()
+  {
+    
+  }
   
   
   void draw(Player player)
@@ -34,7 +39,7 @@ class Door
      current = closed;
    }
    
-   if((player.collider.x + 50 >= collider.x -50) && player.collider.x - 100 <= collider.x + 100 ) //<>//
+   if((player.collider.x + 50 >= collider.x) && player.collider.x - 100 <= collider.x + 100 ) //<>//
    { //<>//
      if (player.room == doorID)
      {
@@ -61,6 +66,9 @@ class Door
 
   }
   
+  
+  
+  
   void doorStatus (Player player)
   {
     if(player.hasKey && player.keyID == keyID)
@@ -69,7 +77,7 @@ class Door
     }
     if((current == open) && (player.room == doorID))
     {
-      if ( player.collider.x >= trigger.x - 100 && player.collider.x <= trigger.x + 50)
+      if ( player.collider.x + 50 >= trigger.x && player.collider.x <= trigger.x + 50)
       {
         println("Door triggered");
         trigger.fill = 1;

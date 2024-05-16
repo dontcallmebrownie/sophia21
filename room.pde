@@ -1,7 +1,8 @@
 class Room 
 {
 
-Boolean hasDoor;
+boolean hasDoor;
+boolean init = true;
 PImage env, blank, current;
 String open, closed;
 String keyID;
@@ -49,6 +50,13 @@ Door exit = new Door(true, true, roomID);
 
   void draw(Player player) 
   {    
+    
+    if (init)
+    {
+      init = false;
+      return;
+    }
+    
     if (exit.current != exit.closed)
     {
       current = blank;
