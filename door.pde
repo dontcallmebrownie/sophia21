@@ -1,6 +1,8 @@
 class Door
 {
-  PImage closed, open, current;
+  PImage closed;
+  PImage opened;
+  PImage current;
   boolean needsKey;
   boolean locked;
   String keyID;
@@ -44,7 +46,7 @@ class Door
      if (player.room == doorID)
      {
        println("Collision");
-       current = open;
+       current = opened;
      }
      else 
        current = closed;
@@ -75,7 +77,7 @@ class Door
     {
        locked = false;
     }
-    if((current == open) && (player.room == doorID))
+    if((current == opened) && (player.room == doorID))
     {
       if ( player.collider.x + 50 >= trigger.x && player.collider.x <= trigger.x + 50)
       {

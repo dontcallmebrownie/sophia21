@@ -4,7 +4,8 @@ class Room
 boolean hasDoor;
 boolean init = true;
 PImage env, blank, current;
-String open, closed;
+String opened;
+String closed;
 String keyID;
 int nextRoom;
 int dXB, dXE;
@@ -15,7 +16,7 @@ Door exit = new Door(true, true, roomID);
   Room(int ID, Boolean hD, String o, String c, int nR, int doorB, int doorE)
   {
     hasDoor = hD;
-    open = o;
+    opened = o;
     closed = c;
     exit.leadsTo = nR;
     exit.needsKey = false;
@@ -29,7 +30,7 @@ Door exit = new Door(true, true, roomID);
   Room(int ID, boolean hD, String kID, String o, String c, int nR, int doorB, int doorE)
   {
     hasDoor = hD;
-    open = o;
+    opened = o;
     closed = c;
     exit.keyID = kID;
     exit.leadsTo = nR;
@@ -42,7 +43,7 @@ Door exit = new Door(true, true, roomID);
 
   void setup()
   {
-    exit.open = loadImage(open); //<>//
+    exit.opened = loadImage(opened); //<>//
     exit.closed = loadImage(closed);
     blank = loadImage("./rsc/img/env/blank.png");
   }
